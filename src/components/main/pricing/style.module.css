@@ -1,0 +1,49 @@
+.numbers {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4.5rem;
+}
+
+.separator {
+    width: .1rem;
+    height: 7rem;
+    background-color: #DBDBDB;
+}
+
+.title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.desc {
+    color: var(--darkGray);
+}
+
+.progressBar {
+    background-color: #F4F4F4;
+    border-radius: 5rem;
+    height: 1.2rem;
+    width: 100%;
+}
+
+.progress {
+    background-color: var(--moderateCyan);
+    border-radius: 5rem;
+    height: 1.2rem;
+}
+
+@media screen and (max-width: 642px) {
+    .numbers {
+        flex-direction: column; 
+    }
+
+    .separator {
+        width: 7rem;
+        height: .1rem;
+        margin: 3.5rem 0;
+    }
+}

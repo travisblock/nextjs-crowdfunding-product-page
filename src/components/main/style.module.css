@@ -1,0 +1,11 @@
+.main {
+    max-width: 73.1rem;
+    margin: 0 auto;
+} 
+
+@media screen and (max-width: 781px) {
+    .main {
+        max-width: unset;
+        padding: 0 2.5rem;
+    }
+}

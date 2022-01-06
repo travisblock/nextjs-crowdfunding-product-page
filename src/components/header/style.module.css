@@ -1,0 +1,127 @@
+.header {
+    padding-top: 5.4rem;
+    max-width: 110.9rem;
+    margin: 0 auto;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.listMenu{
+    display: flex;
+    gap: 1.7rem;
+    justify-content: space-between;
+}
+
+.listMenu li a{
+    color: #fff;
+}
+
+.iconMenu,
+.iconClose {
+    display: none;
+}
+
+@media screen and (max-width: 1135px) {
+    .header {
+        max-width: unset;
+        padding: 5.4rem 2.5rem 0 2.5rem;
+    }
+}
+
+@media screen and (max-width: 642px) {
+    .logo {
+        position: absolute;
+        z-index: 2;
+        left: 0;
+    }
+
+    .iconMenu, .iconClose  {
+        display: unset;
+        cursor: pointer;
+        position: absolute;
+        z-index: 2;
+        right: 0
+    }
+
+    .overlay {
+        position: fixed;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.25);
+        height: 100vh;
+        z-index: 1;
+        display: block;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+    
+    .overlay.deactive {
+        opacity: 0;
+        visibility: hidden;
+    }
+    
+    .overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .iconOpen {
+        display: unset;
+    }
+
+    .iconHide {
+        display: none;
+    }
+
+    .header {
+        padding: 2.6rem 2.6rem 0 2.6rem;
+    }
+
+    .nav {
+        display: block;
+        position: relative;
+    }
+
+    .listMenu {
+        display: block;
+        background-color: #fff;
+        border-radius: 1.5rem;
+        position: absolute;
+        z-index: 999;
+        width: 100%;
+        top: 5rem;
+        box-shadow: 0 0 3rem rgb(0 0 0 / 50%);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .listMenu.menuOpen{
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .listMenu.menuClose {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .listMenu li {
+        padding: 2.5rem 0;
+    }
+
+    .listMenu li a {
+        padding: 2.5rem;
+        color: #000;
+        font-weight: 500;
+        font-size: 1.8rem;
+    }
+
+    .listMenu li:nth-of-type(2) {
+        border-top: .1rem solid #ECECEC;
+        border-bottom: .1rem solid #ECECEC;
+    }
+}

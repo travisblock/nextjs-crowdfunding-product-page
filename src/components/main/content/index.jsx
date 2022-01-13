@@ -1,7 +1,12 @@
 import contents from './contents';
 import style from './style.module.css';
 
-export default function MainContent() {
+export default function MainContent({ onSelect }) {
+
+    function selectHandler(id) {
+        onSelect(id);
+    }
+
     return (
         <section className={`card`}>
             <h3 className={style.title}>About this project</h3>
@@ -33,9 +38,9 @@ export default function MainContent() {
                                     <span className={style.productPrice}>
                                         { content.qty } <span>left</span>
                                     </span>
-                                    <a href="#" className={style.actionBtn}>
+                                    <button onClick={() => selectHandler(content.id)} className={style.actionBtn}>
                                         Select Reward
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         )

@@ -32,11 +32,13 @@
 
 .actionBtn {
     background-color: var(--moderateCyan);
+    border: 0;
     color: #fff;
     font-weight: 700;
     padding: 2rem 3rem;
     border-radius: 5rem;
     transition: all 0.3s ease-in-out;
+    cursor: pointer;
 }
 
 .actionBtn:hover {

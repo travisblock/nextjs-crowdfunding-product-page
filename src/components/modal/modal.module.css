@@ -1,0 +1,381 @@
+.modalBox, .modalOverlay {
+    visibility: hidden;
+}
+
+.modalBox .modal {
+    transform: scale(0.95);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modalBox.modalOpen {
+    visibility: visible;
+}
+
+.modalBox.modalOpen .modal {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.modalOverlay.overlayVisible {
+    visibility: visible;
+}
+
+.modalBox {
+    position: fixed;
+    z-index: 3;
+    top: 10vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70rem;
+    padding-right: 17px;
+}
+
+.modal {
+    background-color: #fff;
+    padding: 6rem 5rem;
+    position: relative;
+    border-radius:  1rem;
+    border: 1px solid #F5F5F5;
+    box-shadow: 0 10px 30px 0 rgb(82 63 105 / 5%);
+    max-height: 80vh;
+    overflow-y: auto;
+    transition: all 0.3s ease-in-out;
+}
+
+/* hide scrollbar */
+.modal::-webkit-scrollbar {
+    display: none;
+}
+
+.modalOverlay {
+    position: fixed;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.603);
+    height: 100vh;
+    z-index: 1;
+    display: block;
+    top: 0;
+    left: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.desc {
+    color: var(--darkGray);
+    line-height: 2.8rem;
+}
+
+.close{
+    position: absolute;
+    top: 4.5rem;
+    right: 5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.card {
+    border: .2rem solid #ECECEC;
+    border-radius: .8rem;
+    padding: 3rem;
+    margin: 3rem 0 ;
+    transition: border .3s ease-in-out;
+}
+
+.card.selected {
+    border: 2px solid var(--moderateCyan);
+}
+
+.cardHead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4rem;
+}
+
+.leftHead {
+    display: flex;
+    align-items: center;
+    gap: 2.1rem
+}
+
+.pledge {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--moderateCyan);
+    line-height: 1.5;
+}
+
+.qty {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+}
+
+.qty h6 {
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.qty span {
+    font-weight: 500;
+    font-size: 1.6rem;
+    color: var(--darkGray);
+}
+
+.formRadio label {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.formRadio .circleRadio {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+    border: .2rem solid #ECECEC;
+    width: 25px;
+    min-width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+}
+
+.formRadio .circleRadio::before{
+    content: "";
+    display: block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: var(--moderateCyan);
+    transition: all 0.1s ease-in-out;
+    transform: scale(0);
+    cursor: pointer;
+}
+
+.inputRadioCustom{
+    display: none;
+}
+
+.inputRadioCustom:checked ~ .cardHead .formRadio .circleRadio::before {
+    background-color: var(--moderateCyan);
+    transform: scale(1);
+}
+
+.inputRadioCustom:not(:checked) ~ .cardFoot {
+    opacity: 0;
+    height: 0;
+    margin: 0;
+}
+
+.inputRadioCustom:not(:checked) ~ .cardBody {
+    margin-bottom: 6rem;
+}
+
+.inputRadioCustom:not(:checked) ~ .cardHead .qty {
+    bottom: 3rem;
+}
+
+
+.inputRadioCustom:not(:checked) ~ .separator {
+    opacity: 0;
+    margin: 0;
+}
+
+.formRadio label h3 {
+    color: #000;
+    font-size: 2rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.detail {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.cardBody {
+    margin-left: 4.5rem;
+}
+
+.cardDesc {
+    color: var(--darkGray);
+    line-height: 2.8rem;
+    margin: 0;
+    margin-top: 2.6rem;
+}
+
+.separator {
+    width: calc(100% + 6rem);
+    height: .2rem;
+    background-color: #ECECEC;
+    margin-top: 3.8rem;
+    margin-left: -3rem;
+    transition: all .3s ease-in-out;
+}
+
+.cardFoot {
+    margin-top: 2.6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all .3s ease-in-out;
+}
+
+.enterPledge {
+    margin: 0;
+    color: var(--darkGray)
+}
+
+.cta {
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
+    flex-wrap: wrap;
+}
+
+.formInput {
+    position: relative;
+}
+
+.formInput input{
+    width: 15rem;
+    height: 5rem;
+    border-radius: 3rem;
+    border: 2px solid #ECECEC;;
+    padding: 0 2rem 0 3.5rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.formInput input:focus {
+    outline: none;
+    border: 2px solid var(--moderateCyan);
+}
+
+.formInput::before {
+    content: "$";
+    font-size: 1.8rem;
+    font-weight: 700;
+    position: absolute;
+    top: 1.4rem;
+    left: 2rem;
+    color: var(--darkGray)
+}
+
+.actionBtn {
+    width: 11rem;
+    height: 5rem;
+    padding: 0 1.5rem;
+    font-weight: 700;
+    background-color: var(--moderateCyan);
+    border: none;
+    border-radius: 3rem;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.6rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.actionBtn:hover {
+    background-color: var(--darkCyan);
+}
+
+
+@media screen and (max-width: 781px) {
+    .modalBox {
+        width: 100%;
+        padding: 0 4.2rem 0 2.5rem;
+    }
+}
+
+@media screen and (max-width: 642px) {
+    .modal {
+        padding: 2.5rem;
+    }
+
+    .card {
+        padding: 2.5rem;
+        position: relative;
+    }
+
+    .separator {
+        width: calc(100% + 5rem);
+        height: .2rem;
+        background-color: #ECECEC;
+        margin-top: 7.8rem;
+        margin-left: -2.5rem;
+    }
+
+    .cardBody {
+        margin-left: 0;
+    }
+
+    .leftHead {
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .close {
+        top: 3.5rem;
+        right: 2.5rem;
+    }
+
+    .formRadio input[type="radio"] {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .formRadio input[type="radio"]::before{
+        width: 1rem;
+        height: 1rem;
+    }
+
+    .detail {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .cardFoot {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .qty {
+        position: absolute;
+        bottom: 17.5rem;
+    }
+
+    .formInput {
+        flex-grow: 1;
+        width: 50%;
+    }
+    
+    .formInput input {
+        width: 100%;
+    }
+
+    .actionBtn {
+        width: unset;
+        flex-grow: 0;
+    }
+}
+
+@media screen and (max-width: 387px) {
+    .qty {
+        bottom: 24.5rem;
+    }
+}

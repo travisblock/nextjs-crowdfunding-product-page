@@ -11,21 +11,9 @@ export default function Header() {
         setIsOpen(!isOpen);
     }
 
-    useEffect(() => {
-        const bodyOnBlur = () => {
-            if (isOpen) {
-                document.body.addEventListener('click', handleMenu);
-            }
-        }
-        bodyOnBlur();
-        return () => {
-            document.body.removeEventListener('click', handleMenu);
-        }
-    }, [isOpen]);
-
     return (
         <header className={style.header}>
-            <div className={`${style.overlay} ${isOpen ? style.active : style.deactive }`}></div>
+            <div onClick={handleMenu} className={`${style.overlay} ${isOpen ? style.active : style.deactive }`}></div>
             <nav className={style.nav}>
                 <Logo className={style.logo} />
                 <IconMenu className={`${style.iconMenu} ${!isOpen ? style.iconShow : style.iconHide}`} onClick={handleMenu} />

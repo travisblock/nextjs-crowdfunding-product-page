@@ -72,6 +72,9 @@
     padding: 1.5rem 3rem;
     border-radius: 5rem;
     transition: all 0.3s ease-in-out;
+    outline: none;
+    border: 0;
+    cursor: pointer;
 }
 
 .actionBtn:hover {
